@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.xidian.rpcdemo.grpc";
+//option java_outer_classname = "BookProto";
+
+//package library;
+
+message BookID{
+    int32 id = 1;
+}
+
+message BookName{
+    string name = 1;
+}
+
+message Bookinfo{
+    BookID bookID = 1;
+    BookName name = 2;
+    string author = 3;
+}
+
+message Reply{
+    bool status = 1;
+}
+
+service BookManager{
+    rpc add(Bookinfo) returns (Reply){};
+    rpc queryByID(BookID) returns (Bookinfo){};
+    rpc queryByName(BookName) returns (stream Bookinfo){};
+    rpc delete(BookID) returns (Reply){};
+}
