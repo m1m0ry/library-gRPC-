@@ -1,16 +1,8 @@
-library with gRpc
+library with gRPC
+
+# build
 
 Run in this directory:
-
-```
-$ mvn verify
-$ # Run the server
-$ mvn exec:java -Dexec.mainClass=org.xidian.rpcdemo.MyGrpcServer
-$ # In another terminal run the client
-$ mvn exec:java -Dexec.mainClass=org.xidian.rpcdemo.MyGrpcClient
-```
-
-
 
 ```
 mvn verify
@@ -21,3 +13,9 @@ mvn exec:java -Dexec.mainClass=org.xidian.rpcdemo.server.MyLibGrpcServer
 # In another terminal run the client
 mvn exec:java -Dexec.mainClass=org.xidian.rpcdemo.client.MyLibGrpcClient
 ```
+
+# to do
+
+- [ ] GUI
+- [ ] change SQL to ORM
+- [ ] log

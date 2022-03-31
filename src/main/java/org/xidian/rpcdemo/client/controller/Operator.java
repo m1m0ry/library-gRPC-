@@ -55,7 +55,7 @@ public class Operator {
                         .build());
 
         while (Response.hasNext()) {
-            Bookinfo bookinfo=Response.next();
+            Bookinfo bookinfo = Response.next();
             int ID = bookinfo.getBookID().getId();
             String bookName = bookinfo.getName().getName();
             String Author = bookinfo.getAuthor();
@@ -76,7 +76,7 @@ public class Operator {
         return Response.getStatus();
     }
 
-    public void shutdown() {
+    public static void shutdown() {
         channel.shutdown();
     }
 }

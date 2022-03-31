@@ -76,10 +76,10 @@ public class Operator {
                 Book book = new Book(ID, bookName, Author);
                 booklist.add(book);
             }
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
-            booklist=null;
+            booklist = null;
         } finally {
             Database.close(conn, stmt, rs);
         }
