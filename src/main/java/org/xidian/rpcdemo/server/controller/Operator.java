@@ -42,10 +42,17 @@ public class Operator {
 
             rs = stmt.executeQuery(sql);
 
-            int ID = rs.getInt("id");
-            String bookName = rs.getString("bookname");
-            String Author = rs.getString("author");
-            book = new Book(ID, bookName, Author);
+            if (rs.next()) {
+                int ID = rs.getInt("id");
+                String bookName = rs.getString("bookname");
+                String Author = rs.getString("author");
+                book = new Book(ID, bookName, Author);
+            } else {
+                int ID = -1;
+                String bookName = "null";
+                String Author = "null";
+                book = new Book(ID, bookName, Author);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -69,6 +76,16 @@ public class Operator {
             sql = "select * from book" + " where bookname LIKE '%" + bookname + "%'";
 
             rs = stmt.executeQuery(sql);
+
+            if (rs.next() == false) {
+                int ID = -1;
+                String bookName = "null";
+                String Author = "null";
+                Book book = new Book(ID, bookName, Author);
+                booklist.add(book);
+                return booklist;
+            }
+
             while (rs.next()) {
                 int ID = rs.getInt("id");
                 String bookName = rs.getString("bookname");
