@@ -14,8 +14,20 @@ public class Operator {
     static ManagedChannel channel = null;
     static BookManagerGrpc.BookManagerBlockingStub stub = null;
 
-    public static void init() throws InterruptedException {
-        channel = ManagedChannelBuilder.forAddress("localhost", 8080)
+    public static void init(String[] args) throws InterruptedException {
+
+        String address = "localhost";
+        int port = 8080;
+
+        if (args.length == 2) {
+            port = Integer.parseInt(args[1]);
+        }
+        if (args.length == 3) {
+            address = args[1];
+            port = Integer.parseInt(args[2]);
+        }
+
+        channel = ManagedChannelBuilder.forAddress(address, port)
                 .usePlaintext()
                 .build();
 

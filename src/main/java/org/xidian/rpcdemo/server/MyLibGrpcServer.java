@@ -18,7 +18,14 @@ public class MyLibGrpcServer {
     private static final Logger logger = LoggerFactory.getLogger("MyLibGrpcServer.class");
 
     static public void main(String[] args) throws IOException, InterruptedException {
-        Server server = ServerBuilder.forPort(8080)
+
+        int port = 8080;
+
+        if (args.length == 2) {
+            port = Integer.parseInt(args[1]);
+        }
+
+        Server server = ServerBuilder.forPort(port)
                 .addService(new BookManagerImpl()).build();
 
         System.out.println("Starting server...");
