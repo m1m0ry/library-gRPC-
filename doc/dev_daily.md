@@ -5,3 +5,6 @@
 - day 3: coding ui
 
 ## other
+
+- day 4: fix sql bug, package jar, args, clean some code
+- day 5: write doc

@@ -12,6 +12,7 @@ public class NewLib {
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30); // set timeout to 30 sec.
 
+            statement.executeUpdate("drop table if exists book");
             statement.executeUpdate("create table book (id integer, bookname string, author string)");
             statement.executeUpdate("insert into book values(1, '数据科学', '大刘')");
             statement.executeUpdate("insert into book values(2, '走进科技', '张三')");

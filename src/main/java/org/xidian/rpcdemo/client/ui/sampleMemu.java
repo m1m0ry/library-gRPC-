@@ -117,7 +117,7 @@ public class sampleMemu {
         }
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("请输入 书名：");
+        System.out.println("请输入 书名/作者名：");
         String name = scan.nextLine();
 
         // ArrayList<Book> books = null;

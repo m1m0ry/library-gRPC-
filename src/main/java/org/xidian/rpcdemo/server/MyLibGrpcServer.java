@@ -9,6 +9,7 @@ import org.xidian.rpcdemo.server.model.Book;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import com.google.protobuf.TextFormat;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,7 +40,8 @@ public class MyLibGrpcServer {
         public void add(Bookinfo request, StreamObserver<Reply> responseObserver) {
 
             // System.out.println(request);
-            logger.info(Thread.currentThread().getStackTrace()[1].getMethodName() + "\n" + request.toString());
+            logger.info(Thread.currentThread().getStackTrace()[1].getMethodName() + "\n"
+                    + TextFormat.printer().escapingNonAscii(false).printToString(request));
 
             Reply response = Reply.newBuilder()
                     .setStatus(
@@ -70,7 +72,8 @@ public class MyLibGrpcServer {
         public void queryByName(BookName request, StreamObserver<Bookinfo> responseObserver) {
 
             // System.out.println(request);
-            logger.info(Thread.currentThread().getStackTrace()[1].getMethodName() + "\n" + request.toString());
+            logger.info(Thread.currentThread().getStackTrace()[1].getMethodName() + "\n"
+                    + TextFormat.printer().escapingNonAscii(false).printToString(request));
 
             ArrayList<Book> booklist = Operator.queryByName(request.getName());
 
