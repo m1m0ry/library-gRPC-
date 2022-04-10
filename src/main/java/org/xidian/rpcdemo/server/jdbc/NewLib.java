@@ -18,6 +18,7 @@ public class NewLib {
             statement.executeUpdate("insert into book values(2, '走进科技', '张三')");
             statement.executeUpdate("insert into book values(3, '菜谱', '李四')");
             statement.executeUpdate("insert into book values(4, '菜单', '王五')");
+            statement.executeUpdate("insert into book values(5, '防疫须知', '科兴')");
             ResultSet rs = statement.executeQuery("select * from book");
             while (rs.next()) {
                 // read the result set
